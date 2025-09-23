@@ -1,5 +1,6 @@
 package Base;
 
+import Utils.Constant;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -37,6 +38,8 @@ public class BaseTest{
     public void beforeMethod(String browser, Method method){
         logger = reports.createTest(method.getName());
         setupDriver(browser);
+        webdriver.get(Constant.url);
+        webdriver.manage().window().maximize();
     }
     @AfterMethod
     public void afterMethod(ITestResult result){
